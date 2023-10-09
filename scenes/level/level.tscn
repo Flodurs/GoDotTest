@@ -24,7 +24,7 @@ shape = SubResource("BoxShape3D_kgdq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 7.57944, 0)
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_c3eje")]
