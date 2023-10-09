@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3euuvq787nmh"]
+
+[ext_resource type="Script" path="res://scenes/Player/player_camera.gd" id="1_bgaqx"]
+
+[node name="PlayerCamera" type="Camera3D"]
+script = ExtResource("1_bgaqx")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
