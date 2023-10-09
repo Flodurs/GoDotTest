@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bjdmfn87xr8wg"]
-
-[node name="Node3DTest" type="Node3D"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="Node3D" type="Node3D" parent="."]
