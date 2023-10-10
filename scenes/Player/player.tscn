@@ -14,6 +14,7 @@ script = ExtResource("1_yxjst")
 shape = SubResource("CapsuleShape3D_3fy5n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_eagx7")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_jmlg0")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=7 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
 [ext_resource type="PackedScene" uid="uid://2m18wnpcsctt" path="res://scenes/enemys/enemy_1.tscn" id="2_c3eje"]
+[ext_resource type="PackedScene" uid="uid://v08ble4p3wop" path="res://scenes/Objects/moving_platform.tscn" id="3_572og"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -34,3 +35,6 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_c3eje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49216, 2, -5)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_572og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4945, 2.08352, 0)

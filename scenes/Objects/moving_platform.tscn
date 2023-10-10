@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://v08ble4p3wop"]
+
+[ext_resource type="Script" path="res://scenes/Objects/moving_platform.gd" id="1_j5i2u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpj3r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xosiy"]
+size = Vector3(5.01522, 0.209799, 5.01951)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4jl0"]
+size = Vector3(4.8422, 0.825951, 4.90429)
+
+[node name="MovingPlatform" type="AnimatableBody3D"]
+script = ExtResource("1_j5i2u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_jpj3r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xosiy")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504179, 0)
+shape = SubResource("BoxShape3D_n4jl0")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

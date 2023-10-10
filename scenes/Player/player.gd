@@ -43,14 +43,19 @@ func _physics_process(delta):
 		acceleration(delta, direction)
 	if Input.is_action_pressed("Jump") and is_on_floor():
 		velocity.y = jump_speed
+		
 	
-	
+
 	if movement == false and is_on_floor():
 		velocity = velocity - velocity.normalized() * speed * delta
 		
-	
+
 	if not is_on_floor():
 		velocity.y -= 30 * delta
 	
-	
+
 	move_and_slide()
+
+
+func floor_snap():
+	apply_floor_snap()
