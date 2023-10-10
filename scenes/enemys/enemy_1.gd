@@ -7,6 +7,7 @@ var rotationspeed = 10
 var target_y_angle = 0
 var movementSpeed = 2
 var targetPoint = 1
+var enableShooting = 0
 
 func _physics_process(delta):
 	
@@ -15,8 +16,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func shoot():
+
 	var b = BULLET.instantiate()
-	b.position = position
+	b.position = $Head/BulletSpawn.global_position
+	print(global_position,position)
+	
 	b.rotation = $Head.rotation
 	b.rotation.y+=1.5707
 	owner.add_child(b)
@@ -27,7 +31,7 @@ func _process(delta):
 	processPatrol(delta)
 	
 func processPatrol(delta):
-	
+	enableShooting+=1
 	if targetPoint == 1:
 		transform.origin.x+=movementSpeed*delta
 	
