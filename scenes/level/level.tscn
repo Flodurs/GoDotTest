@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=8 format=3 uid="uid://dt7u684plii76"]
 
+[ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
 [ext_resource type="PackedScene" uid="uid://2m18wnpcsctt" path="res://scenes/enemys/enemy_1.tscn" id="2_c3eje"]
 [ext_resource type="PackedScene" uid="uid://v08ble4p3wop" path="res://scenes/Objects/moving_platform.tscn" id="3_572og"]
@@ -7,7 +8,8 @@
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pispi"]
-albedo_color = Color(0.945098, 0, 0.960784, 1)
+albedo_texture = ExtResource("1_0hb6a")
+uv1_scale = Vector3(75, 75, 75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdq1"]
 size = Vector3(228.462, 0.553409, 233.124)
@@ -15,10 +17,9 @@ size = Vector3(228.462, 0.553409, 233.124)
 [node name="Level" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2108, -3.98718, 0.0950389)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(228.243, 0, 0, 0, 0.557, 0, 0, 0, 230.751, 0, -11.0493, 0)
+transform = Transform3D(228.243, 0, 0, 0, 0.557, 0, 0, 0, 230.751, 0, 0, 0)
 mesh = SubResource("BoxMesh_gwq0k")
 surface_material_override/0 = SubResource("StandardMaterial3D_pispi")
 
