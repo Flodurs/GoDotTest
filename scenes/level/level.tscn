@@ -15,6 +15,7 @@ size = Vector3(24.7648, 0.553409, 24.203)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2108, -0.0516601, 0.0950389)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(24.6436, 0, 0, 0, 0.557143, 0, 0, 0, 24.2322, 0, 0, 0)
