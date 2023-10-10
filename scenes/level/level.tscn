@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=6 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
 [ext_resource type="PackedScene" uid="uid://2m18wnpcsctt" path="res://scenes/enemys/enemy_1.tscn" id="2_c3eje"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pispi"]
+albedo_color = Color(0.945098, 0, 0.960784, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdq1"]
 size = Vector3(24.7648, 0.553409, 24.203)
@@ -16,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(24.6436, 0, 0, 0, 0.557143, 0, 0, 0, 24.2322, 0, 0, 0)
 mesh = SubResource("BoxMesh_gwq0k")
+surface_material_override/0 = SubResource("StandardMaterial3D_pispi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_kgdq1")
