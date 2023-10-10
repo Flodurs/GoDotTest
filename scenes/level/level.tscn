@@ -6,7 +6,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdq1"]
-size = Vector3(24.7648, 0.553409, 24.203)
+size = Vector3(228.462, 0.553409, 233.124)
 
 [node name="Level" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
@@ -14,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(24.6436, 0, 0, 0, 0.557143, 0, 0, 0, 24.2322, 0, 0, 0)
+transform = Transform3D(228.243, 0, 0, 0, 0.557, 0, 0, 0, 230.751, 0, 0, 0)
 mesh = SubResource("BoxMesh_gwq0k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

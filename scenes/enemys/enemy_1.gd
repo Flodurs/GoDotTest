@@ -16,7 +16,7 @@ func _process(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	var dir = player.transform.origin - transform.origin
 	if dir.dot(transform.basis.z) > 0:
-		print("Hit")
+	
 	
 	
 	
