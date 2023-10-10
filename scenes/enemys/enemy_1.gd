@@ -14,8 +14,27 @@ func _physics_process(delta):
 	
 func _process(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]
+	
 	var dir = player.transform.origin - transform.origin
-	if dir.dot(transform.basis.z) > 0:
+	var map_xz: Vector2 
+	map_xz.x=dir.x
+	map_xz.y=dir.z
+	
+
+	
+	
+	var aMap_xz: Vector2
+	aMap_xz.x = transform.basis.x.x
+	aMap_xz.y = transform.basis.x.z
+	
+	var dirAngle = map_xz.angle()
+	var myAngle = aMap_xz.angle()
+	
+	print(dirAngle-myAngle)
+	
+	
+	if abs(dirAngle-myAngle) > 0.01:
+		rotate_y((dirAngle-myAngle)*-0.03)
 	
 	
 	
