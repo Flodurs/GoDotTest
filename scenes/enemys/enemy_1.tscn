@@ -9,7 +9,7 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_278l7"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="enemy1" type="CharacterBody3D"]
 script = ExtResource("1_goman")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
