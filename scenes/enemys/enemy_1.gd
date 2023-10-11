@@ -5,9 +5,12 @@ var BULLET = preload("res://scenes/projectiles/bullet.tscn")
 var gravity = 3
 var rotationspeed = 10
 var target_y_angle = 0
-var movementSpeed = 2
+var movementSpeed = 200
 var targetPoint = 1
 var enableShooting = 0
+
+var shotfreq = 1
+var timeSinceLastShot = 0
 
 func _physics_process(delta):
 	
@@ -15,36 +18,32 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	move_and_slide()
 	
-func shoot():
-
-	var b = BULLET.instantiate()
-	b.position = $Head/BulletSpawn.global_position
-	print(global_position,position)
-	
-	b.rotation = $Head.rotation
-	b.rotation.y+=1.5707
-	owner.add_child(b)
+func shoot(delta):
+	timeSinceLastShot+=delta
+	if timeSinceLastShot >= shotfreq:
+		timeSinceLastShot = 0
+		var b = BULLET.instantiate()
+		b.position = $Head/BulletSpawn.global_position
+		print(global_position,position)
+		
+		b.rotation = $Head.rotation
+		b.rotation.y+=1.5707
+		owner.add_child(b)
 	
 	
 func _process(delta):
+	velocity.x = 0
+	velocity.z = 0
 	processHeadRotation(delta)
 	processPatrol(delta)
 	
 func processPatrol(delta):
-	enableShooting+=1
-	if targetPoint == 1:
-		transform.origin.x+=movementSpeed*delta
-	
-	if targetPoint == 0:
-		transform.origin.x-=movementSpeed*delta
-		
-	if transform.origin.x >= 2:
-		shoot()
-		targetPoint = 0
-	
-	if transform.origin.x <= -2:
-		shoot()
-		targetPoint = 1
+	var player = get_tree().get_nodes_in_group("Player")[0]
+	if abs((player.position - position).length()) <= 10:
+		shoot(delta)
+		velocity+=$Head.global_transform.basis.z.normalized()*delta*movementSpeed
+	else:
+		velocity+=$Head.global_transform.basis.x.normalized()*delta*movementSpeed
 		
 	
 	
