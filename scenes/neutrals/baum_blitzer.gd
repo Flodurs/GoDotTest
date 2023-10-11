@@ -7,6 +7,8 @@ var timeSinceLastBlitz =  rng.randf_range(0,1.5)
 var targetBaumIndex = 0
 var time = 0
 
+var speed = 0.5
+
 
 func _ready():
 	pass
@@ -22,12 +24,14 @@ func _process(delta):
 	
 	var dist = dir.length()
 	dir = dir.normalized()
-	position+=dir*delta*0.5*dist
+	position+=dir*delta*speed*dist
 	rotate(dir,0.02*cos(3.1415*time))
 	
 	
 	if dist < 0.1:
+		speed = get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].scale.y*0.3
 		get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].shrink()
+		
 		targetBaumIndex=rng.randi() % get_tree().get_nodes_in_group("alleBaeume").size()
 		rotation = Vector3(0,0,0)
 		time = 0
