@@ -60,3 +60,9 @@ script = ExtResource("8_wax0q")
 [node name="BaumBlitzer3" parent="." instance=ExtResource("7_u13pw")]
 
 [node name="BaumBlitzer4" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="BaumBlitzer5" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="BaumBlitzer6" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="BaumBlitzer7" parent="." instance=ExtResource("7_u13pw")]

@@ -10,14 +10,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timeSinceLastGrow+=delta
-	if timeSinceLastGrow > 5:
+	if timeSinceLastGrow > 2:
 		timeSinceLastGrow=0
 		if (rng.randi() % 2) == 0:
 			grow()
 	
 	
 func grow():
-	scale.y += 0.5
+	scale.y += 0.1
 	
 func shrink():
 	scale.y -= 0.5

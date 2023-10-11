@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 var timeSinceLastBlitz =  rng.randf_range(0,1.5)
 
 var targetBaumIndex = 0
+var time = 0
 
 
 func _ready():
@@ -14,14 +15,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timeSinceLastBlitz+=delta
+	time+=delta
 	var dir = (get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].position - position)
 	
 	dir.y += 2*get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].scale.y
 	
 	var dist = dir.length()
 	dir = dir.normalized()
-	position+=dir*delta*1*dist
+	position+=dir*delta*0.5*dist
+	rotate(dir,0.02*cos(3.1415*time))
+	
+	
 	if dist < 0.1:
 		get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].shrink()
 		targetBaumIndex=rng.randi() % get_tree().get_nodes_in_group("alleBaeume").size()
+		rotation = Vector3(0,0,0)
+		time = 0
 	
