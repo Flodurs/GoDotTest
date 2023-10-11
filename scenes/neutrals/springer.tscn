@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://wrentdl721x5"]
+
+[ext_resource type="Script" path="res://scenes/neutrals/springer.gd" id="1_qgddk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5x5m5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m1gr3"]
+
+[node name="springer" type="CharacterBody3D"]
+script = ExtResource("1_qgddk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5x5m5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("CylinderShape3D_m1gr3")

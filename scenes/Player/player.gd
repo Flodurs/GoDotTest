@@ -24,7 +24,7 @@ func _physics_process(delta):
 	var movement: bool = false
 	
 	
-	print(position)
+#	print(position)
 	if Input.is_action_pressed("Forward"):
 		movement = true
 		direction = camera_direction
@@ -43,7 +43,7 @@ func _physics_process(delta):
 		acceleration(delta, direction)
 	if Input.is_action_pressed("Jump") and is_on_floor():
 		velocity.y = jump_speed
-	print(velocity.length())
+#	print(velocity.length())
 	
 
 	if movement == false and is_on_floor():

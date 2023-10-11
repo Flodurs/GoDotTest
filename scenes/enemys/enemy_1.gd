@@ -3,7 +3,7 @@ extends CharacterBody3D
 var BULLET = preload("res://scenes/projectiles/bullet.tscn")
 
 var gravity = 3
-var rotationspeed = 10
+var rotationspeed = 20
 var target_y_angle = 0
 var movementSpeed = 200
 var targetPoint = 1
@@ -24,7 +24,7 @@ func shoot(delta):
 		timeSinceLastShot = 0
 		var b = BULLET.instantiate()
 		b.position = $Head/BulletSpawn.global_position
-		print(global_position,position)
+#		print(global_position,position)
 		
 		b.rotation = $Head.rotation
 		b.rotation.y+=1.5707
@@ -38,7 +38,7 @@ func _process(delta):
 	processPatrol(delta)
 	
 func processPatrol(delta):
-	var player = get_tree().get_nodes_in_group("Player")[0]
+	var player = get_tree().get_nodes_in_group("alleSpringer")[0]
 	if abs((player.position - position).length()) <= 10:
 		shoot(delta)
 		velocity+=$Head.global_transform.basis.z.normalized()*delta*movementSpeed
@@ -52,7 +52,7 @@ func processPatrol(delta):
 
 	
 func processHeadRotation(delta):
-	var player = get_tree().get_nodes_in_group("Player")[0]
+	var player = get_tree().get_nodes_in_group("alleSpringer")[0]
 	
 	var dir = player.global_transform.origin - $Head.global_transform.origin
 	var map_xz: Vector2 
@@ -74,8 +74,12 @@ func processHeadRotation(delta):
 	
 	
 	
-	if abs(dirAngle-myAngle) > 0.01:
-		$Head.global_rotate(Vector3(0,1,0),(dirAngle-myAngle)*-rotationspeed*delta)
+	if abs(dirAngle-myAngle) > 0.001:
+		$Head.global_rotate(Vector3(0,1,0),sign(dirAngle-myAngle)*pow((dirAngle-myAngle)*rotationspeed,2)*-delta)
+		
+		
+		
+#		print(dirAngle-myAngle)
 		
 		
 	

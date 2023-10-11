@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=10 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
 [ext_resource type="PackedScene" uid="uid://2m18wnpcsctt" path="res://scenes/enemys/enemy_1.tscn" id="2_c3eje"]
 [ext_resource type="PackedScene" uid="uid://v08ble4p3wop" path="res://scenes/Objects/moving_platform.tscn" id="3_572og"]
 [ext_resource type="PackedScene" uid="uid://couvnpg0x8374" path="res://scenes/Objects/wald.tscn" id="5_8xyvl"]
+[ext_resource type="PackedScene" uid="uid://wrentdl721x5" path="res://scenes/neutrals/springer.tscn" id="6_3arif"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -34,10 +35,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592, 0)
 transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 7.57944, 0)
 shadow_enabled = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_c3eje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5078, 4, -1)
-
 [node name="MovingPlatform" parent="." instance=ExtResource("3_572og")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4945, 2.08352, 0)
 
 [node name="Wald" parent="." instance=ExtResource("5_8xyvl")]
+
+[node name="enemy1" parent="." instance=ExtResource("2_c3eje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 0)
+
+[node name="springer" parent="." groups=["alleSpringer"] instance=ExtResource("6_3arif")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 5)
