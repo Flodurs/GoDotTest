@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=12 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://v08ble4p3wop" path="res://scenes/Objects/moving_platform.tscn" id="3_572og"]
 [ext_resource type="PackedScene" uid="uid://couvnpg0x8374" path="res://scenes/Objects/wald.tscn" id="5_8xyvl"]
 [ext_resource type="PackedScene" uid="uid://wrentdl721x5" path="res://scenes/neutrals/springer.tscn" id="6_3arif"]
+[ext_resource type="PackedScene" uid="uid://28a516hr77nm" path="res://scenes/neutrals/baum_blitzer.tscn" id="7_u13pw"]
+[ext_resource type="Script" path="res://scenes/level/OmniLight3D.gd" id="8_wax0q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -31,10 +33,6 @@ shape = SubResource("BoxShape3D_kgdq1")
 [node name="Player" parent="." instance=ExtResource("1_wofso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 7.57944, 0)
-shadow_enabled = true
-
 [node name="MovingPlatform" parent="." instance=ExtResource("3_572og")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4945, 2.08352, 0)
 
@@ -45,3 +43,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 0)
 
 [node name="springer" parent="." groups=["alleSpringer"] instance=ExtResource("6_3arif")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 5)
+
+[node name="BaumBlitzer" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 7.57944, 0)
+light_energy = 5.0
+light_indirect_energy = 0.92
+shadow_enabled = true
+omni_range = 4096.0
+omni_attenuation = 0.406126
+script = ExtResource("8_wax0q")
+
+[node name="BaumBlitzer2" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="BaumBlitzer3" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="BaumBlitzer4" parent="." instance=ExtResource("7_u13pw")]
