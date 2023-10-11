@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://couvnpg0x8374"]
+
+[ext_resource type="Script" path="res://scenes/Objects/wald.gd" id="1_e6nrp"]
+
+[node name="Wald" type="Node3D"]
+script = ExtResource("1_e6nrp")
