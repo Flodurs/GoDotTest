@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=17 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wrentdl721x5" path="res://scenes/neutrals/springer.tscn" id="6_3arif"]
 [ext_resource type="PackedScene" uid="uid://28a516hr77nm" path="res://scenes/neutrals/baum_blitzer.tscn" id="7_u13pw"]
 [ext_resource type="Script" path="res://scenes/level/OmniLight3D.gd" id="8_wax0q"]
+[ext_resource type="ArrayMesh" uid="uid://de5kolm0bojqr" path="res://Suzanne.obj" id="9_kw43f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -17,6 +18,22 @@ uv1_scale = Vector3(75, 75, 75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdq1"]
 size = Vector3(228.462, 0.553409, 233.124)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7mjq"]
+albedo_color = Color(1, 0, 0.301961, 1)
+metallic = 1.0
+roughness = 0.11
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2k4cg"]
+sky_top_color = Color(0.419608, 0.839216, 0.92549, 1)
+
+[sub_resource type="Sky" id="Sky_0fmlg"]
+sky_material = SubResource("ProceduralSkyMaterial_2k4cg")
+
+[sub_resource type="Environment" id="Environment_g4rg8"]
+background_mode = 2
+sky = SubResource("Sky_0fmlg")
+ambient_light_source = 3
 
 [node name="Level" type="Node3D"]
 
@@ -47,7 +64,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 5)
 [node name="BaumBlitzer" parent="." instance=ExtResource("7_u13pw")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 7.57944, 0)
+transform = Transform3D(1, 0, 0, 0, 0.851709, 0.524016, 0, -0.524016, 0.851709, 0, 3.71908, 0)
+visible = false
 light_energy = 5.0
 light_indirect_energy = 0.92
 shadow_enabled = true
@@ -66,3 +84,17 @@ script = ExtResource("8_wax0q")
 [node name="BaumBlitzer6" parent="." instance=ExtResource("7_u13pw")]
 
 [node name="BaumBlitzer7" parent="." instance=ExtResource("7_u13pw")]
+
+[node name="Suzanne" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55449, -15.4158)
+mesh = ExtResource("9_kw43f")
+surface_material_override/0 = SubResource("StandardMaterial3D_n7mjq")
+
+[node name="Skybox" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Skybox"]
+environment = SubResource("Environment_g4rg8")
+
+[node name="Sun" type="DirectionalLight3D" parent="Skybox"]
+transform = Transform3D(1, 0, 0, 0, 0.55233, 0.833626, 0, -0.833626, 0.55233, 0, 19.0353, 13.9305)
+shadow_enabled = true

@@ -48,7 +48,7 @@ func _physics_process(delta):
 
 	if movement == false and is_on_floor():
 		velocity = velocity - velocity.normalized() * speed * delta
-		if velocity.length() < 0.01:
+		if velocity.length() < 0.05:
 			velocity = Vector3.ZERO
 		
 	
