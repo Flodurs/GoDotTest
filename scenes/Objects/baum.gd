@@ -20,4 +20,5 @@ func grow():
 	scale.y += 0.1
 	
 func shrink():
-	scale.y -= 0.5
+	scale.y -= 1
+	

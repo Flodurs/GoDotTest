@@ -30,6 +30,8 @@ func _process(delta):
 	
 	if dist < 0.1:
 		speed = get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].scale.y*0.3
+		if speed < 0.5:
+			speed = 0.5
 		get_tree().get_nodes_in_group("alleBaeume")[targetBaumIndex].shrink()
 		
 		targetBaumIndex=rng.randi() % get_tree().get_nodes_in_group("alleBaeume").size()
