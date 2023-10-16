@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://28a516hr77nm"]
+
+[ext_resource type="Script" path="res://scenes/neutrals/baum_blitzer.gd" id="1_v8rqf"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g1pys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsrgu"]
+albedo_color = Color(0.588235, 0.466667, 0.407843, 1)
+
+[node name="BaumBlitzer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+script = ExtResource("1_v8rqf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 0.2, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("CylinderMesh_g1pys")
+surface_material_override/0 = SubResource("StandardMaterial3D_bsrgu")

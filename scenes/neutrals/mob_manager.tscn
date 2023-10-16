@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgcy2koraerc8"]
+
+[ext_resource type="Script" path="res://scenes/neutrals/mob_manager.gd" id="1_a5axa"]
+
+[node name="mobManager" type="Node3D"]
+script = ExtResource("1_a5axa")

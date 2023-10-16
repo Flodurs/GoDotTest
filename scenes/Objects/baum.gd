@@ -5,6 +5,7 @@ var timeSinceLastGrow = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("alleBaeume")
+	scale.y = 1.5
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,5 +21,6 @@ func grow():
 	scale.y += 0.1
 	
 func shrink():
-	scale.y -= 1
+	if scale.y >= 1:
+		scale.y -= 1
 	
