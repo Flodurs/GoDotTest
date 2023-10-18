@@ -17,6 +17,6 @@ func _process(delta):
 	totalTime+=delta
 	if timerA >= 5:
 		timerA=0
-		data.append(Vector2(totalTime*1,get_tree().get_nodes_in_group("baumblitzer").size()))
+		data.append(Vector2(totalTime*1,-get_tree().get_nodes_in_group("baumblitzer").size()))
 		$Line2D.set_points(data)
 	$Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
