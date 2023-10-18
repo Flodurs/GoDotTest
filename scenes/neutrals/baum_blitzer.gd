@@ -16,7 +16,7 @@ var energy = 0
 
 
 func _ready():
-	pass
+	add_to_group("baumblitzer")
 	
 
 

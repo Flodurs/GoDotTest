@@ -24,6 +24,8 @@ func createBlitzer(pos):
 	c.add_to_group("blitzer")
 	c.targetBaumIndex=rng.randi() % get_tree().get_nodes_in_group("alleBaeume").size()
 	owner.add_child(c)
+
+
 	
 
 	

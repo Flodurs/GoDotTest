@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=18 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/level/OmniLight3D.gd" id="8_wax0q"]
 [ext_resource type="PackedScene" uid="uid://bgcy2koraerc8" path="res://scenes/neutrals/mob_manager.tscn" id="9_jyysg"]
 [ext_resource type="ArrayMesh" uid="uid://de5kolm0bojqr" path="res://Suzanne.obj" id="9_kw43f"]
+[ext_resource type="Script" path="res://scenes/level/Hud.gd" id="10_toyhc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -86,3 +87,15 @@ transform = Transform3D(1, 0, 0, 0, 0.55233, 0.833626, 0, -0.833626, 0.55233, 0,
 shadow_enabled = true
 
 [node name="mobManager" parent="." groups=["mobmanager"] instance=ExtResource("9_jyysg")]
+
+[node name="Hud" type="CanvasLayer" parent="."]
+script = ExtResource("10_toyhc")
+
+[node name="Label" type="Label" parent="Hud"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Line2D" type="Line2D" parent="Hud"]
+position = Vector2(0, 800)
+width = 2.0
+default_color = Color(1, 0.0941176, 1, 1)
