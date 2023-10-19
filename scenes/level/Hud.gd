@@ -15,8 +15,10 @@ func _ready():
 func _process(delta):
 	timerA+=delta
 	totalTime+=delta
-	if timerA >= 5:
-		timerA=0
-		data.append(Vector2(totalTime*1,-get_tree().get_nodes_in_group("baumblitzer").size()))
+	if timerA >= 1:
+		
+		data.append(Vector2(totalTime*10,-get_tree().get_nodes_in_group("baumblitzer").size()))
+		$Line2D.position.x-=timerA*10
 		$Line2D.set_points(data)
+		timerA=0
 	$Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
