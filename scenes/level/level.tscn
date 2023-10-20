@@ -95,7 +95,33 @@ script = ExtResource("10_toyhc")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Line2D" type="Line2D" parent="Hud"]
+[node name="baumblitzerGraph" type="Node2D" parent="Hud"]
+position = Vector2(0, 175)
+
+[node name="Line2D" type="Line2D" parent="Hud/baumblitzerGraph"]
 position = Vector2(1000, 800)
 width = 2.0
 default_color = Color(1, 0.0941176, 1, 1)
+
+[node name="BaumGraph" type="Line2D" parent="Hud/baumblitzerGraph"]
+position = Vector2(1000, 800)
+width = 2.0
+default_color = Color(0.219608, 0.486275, 0.266667, 1)
+
+[node name="Line2D2" type="Line2D" parent="Hud/baumblitzerGraph"]
+points = PackedVector2Array(1000, 600, 1000, 800)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Hud/baumblitzerGraph"]
+points = PackedVector2Array(0, 800, 1000, 800)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Console" type="Node2D" parent="Hud"]
+position = Vector2(0, 100)
+
+[node name="Input" type="Label" parent="Hud/Console"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "AAAAA"
