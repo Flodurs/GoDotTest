@@ -2,23 +2,41 @@ extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
-var data = [Vector2.ZERO]
+var dataBli = [Vector2.ZERO]
+var dataBau = [Vector2.ZERO]
+
 var timerA = 0
 var totalTime = 0
 
+var plotSpeed = 2
+
 func _ready():
-	
-	$Line2D.set_points(data)
+	pass
+#	$baumblitzerGraph/Line2D.set_points(dataBli)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+#Blitzer:
 	timerA+=delta
 	totalTime+=delta
-	if timerA >= 1:
+	if timerA >= 3:
 		
-		data.append(Vector2(totalTime*10,-get_tree().get_nodes_in_group("baumblitzer").size()))
-		$Line2D.position.x-=timerA*10
-		$Line2D.set_points(data)
+		dataBli.append(Vector2(totalTime*plotSpeed,-get_tree().get_nodes_in_group("baumblitzer").size()))
+		$baumblitzerGraph/Line2D.position.x-=timerA*plotSpeed
+		$baumblitzerGraph/Line2D.set_points(dataBli)
+		
+		
+		var totalTreeSize = 0
+		for baum in get_tree().get_nodes_in_group("alleBaeume"):
+			totalTreeSize += baum.scale.y
+		dataBau.append(Vector2(totalTime*plotSpeed,-totalTreeSize*0.5))
+		$baumblitzerGraph/BaumGraph.position.x-=timerA*plotSpeed
+		$baumblitzerGraph/BaumGraph.set_points(dataBau)
+		
 		timerA=0
+		
 	$Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
+	
+
+
