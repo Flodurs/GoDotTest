@@ -23,27 +23,27 @@ func _physics_process(delta):
 	var camera_direction: Vector3 = $PlayerCamera.look_dir_2d
 	var movement: bool = false
 	
-	
-#	print(position)
-	if Input.is_action_pressed("Forward"):
-		movement = true
-		direction = camera_direction
-		acceleration(delta, direction)
-	if Input.is_action_pressed("Backward"):
-		movement = true
-		direction = -camera_direction
-		acceleration(delta, direction)
-	if Input.is_action_pressed("Right"):
-		movement = true
-		direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(-90))
-		acceleration(delta, direction)
-	if Input.is_action_pressed("Left"):
-		movement = true
-		direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(90))
-		acceleration(delta, direction)
-	if Input.is_action_pressed("Jump") and is_on_floor():
-		velocity.y = jump_speed
-#	print(velocity.length())
+	if not get_tree().get_nodes_in_group("console")[0].dvar_in_console:
+	#	print(position)
+		if Input.is_action_pressed("Forward"):
+			movement = true
+			direction = camera_direction
+			acceleration(delta, direction)
+		if Input.is_action_pressed("Backward"):
+			movement = true
+			direction = -camera_direction
+			acceleration(delta, direction)
+		if Input.is_action_pressed("Right"):
+			movement = true
+			direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(-90))
+			acceleration(delta, direction)
+		if Input.is_action_pressed("Left"):
+			movement = true
+			direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(90))
+			acceleration(delta, direction)
+		if Input.is_action_pressed("Jump") and is_on_floor():
+			velocity.y = jump_speed
+	#	print(velocity.length())
 	
 
 	if movement == false and is_on_floor():

@@ -18,6 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #Blitzer:
+	$baumblitzerGraph.visible = get_tree().get_nodes_in_group("console")[0].cvar_show_eco_graph
 	timerA+=delta
 	totalTime+=delta
 	if timerA >= 3:
@@ -37,6 +38,9 @@ func _process(delta):
 		timerA=0
 		
 	$Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
+	
+	
+		
 	
 
 

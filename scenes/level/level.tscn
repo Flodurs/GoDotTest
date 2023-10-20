@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=19 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
 [ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://couvnpg0x8374" path="res://scenes/Objects/wald.tscn" id="5_8xyvl"]
 [ext_resource type="PackedScene" uid="uid://wrentdl721x5" path="res://scenes/neutrals/springer.tscn" id="6_3arif"]
 [ext_resource type="Script" path="res://scenes/level/OmniLight3D.gd" id="8_wax0q"]
-[ext_resource type="PackedScene" path="res://scenes/neutrals/mob_manager.tscn" id="9_jyysg"]
+[ext_resource type="PackedScene" uid="uid://bgcy2koraerc8" path="res://scenes/neutrals/mob_manager.tscn" id="9_jyysg"]
 [ext_resource type="ArrayMesh" uid="uid://de5kolm0bojqr" path="res://Suzanne.obj" id="9_kw43f"]
 [ext_resource type="Script" path="res://scenes/level/Hud.gd" id="10_toyhc"]
+[ext_resource type="Script" path="res://scenes/level/Console.gd" id="11_kiex7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
@@ -118,10 +119,19 @@ points = PackedVector2Array(0, 800, 1000, 800)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Console" type="Node2D" parent="Hud"]
+[node name="Console" type="Node2D" parent="Hud" groups=["console"]]
 position = Vector2(0, 100)
+script = ExtResource("11_kiex7")
 
-[node name="Input" type="Label" parent="Hud/Console"]
+[node name="InputLabel" type="Label" parent="Hud/Console"]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "AAAAA"
+text = "
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Line2D" type="Line2D" parent="Hud/Console"]
+position = Vector2(0, 25)
+points = PackedVector2Array(0, 0, 200, 0)
+width = 1.0
+default_color = Color(0.0745098, 0.0196078, 0, 1)
