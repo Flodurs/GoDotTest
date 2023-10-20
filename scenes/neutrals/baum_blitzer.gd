@@ -9,7 +9,7 @@ var targetBaumIndex = 0
 var time = 0
 var splitCount = 0
 var splitBool = 0
-var speed = 0.5
+var speed = 1
 var timeoflife=0
 
 var energy = 0

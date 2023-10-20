@@ -96,6 +96,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Line2D" type="Line2D" parent="Hud"]
-position = Vector2(0, 800)
+position = Vector2(1000, 800)
 width = 2.0
 default_color = Color(1, 0.0941176, 1, 1)
