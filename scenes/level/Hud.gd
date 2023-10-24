@@ -37,7 +37,7 @@ func _process(delta):
 		
 		timerA=0
 		
-	$Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
+	$baumblitzerGraph/Label.set_text(str(get_tree().get_nodes_in_group("baumblitzer").size()))
 	
 	
 		

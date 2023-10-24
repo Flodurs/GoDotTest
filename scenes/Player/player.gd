@@ -41,22 +41,22 @@ func _physics_process(delta):
 #	print(position)
 	if not get_tree().get_nodes_in_group("console")[0].dvar_in_console:
 		if Input.is_action_pressed("Forward"):
-			print("forward")
+#			print("forward")
 			movement = true
 			direction = camera_direction
 			acceleration(delta, direction)
 		if Input.is_action_pressed("Backward"):
-			print("backward")
+#			print("backward")
 			movement = true
 			direction = -camera_direction
 			acceleration(delta, direction)
 		if Input.is_action_pressed("Right"):
-			print("right")
+#			print("right")
 			movement = true
 			direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(-90))
 			acceleration(delta, direction)
 		if Input.is_action_pressed("Left"):
-			print("left")
+#			print("left")
 			movement = true
 			direction = camera_direction.rotated(Vector3(0,1,0), deg_to_rad(90))
 			acceleration(delta, direction)
