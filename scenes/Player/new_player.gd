@@ -4,13 +4,17 @@ var mouse_sensitivity: float = 0.01
 var twist_input: float = 0
 var pitch_input: float = 0
 var cam_pitch_max: int = 60
-var brake_speed: int = 2
+var max_speed: float = 30
+var last_direction: Vector3
+var acceleration: float = 100
+var deceleration: float = -70
+var forward_velocity: float
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta):
-	var acceleration: float = 5
+	
 	var input: Vector3 = Vector3.ZERO
 	var direction: Vector3
 	var relative_velocity: Vector3
@@ -42,13 +46,19 @@ func _process(delta):
 	relative_velocity = velocity * $TwistInput.basis
 	
 	
-	velocity *= 0.8
+	
+	if direction != Vector3.ZERO:
+		last_direction = direction
+		forward_velocity += acceleration * delta
 	
 	
+	forward_velocity += deceleration * delta
+	forward_velocity = clamp(forward_velocity, 0, max_speed)
+	
+	velocity.x = last_direction.x * forward_velocity
+	velocity.z = last_direction.z * forward_velocity
 	
 	
-	#set acceleration
-	velocity += direction * acceleration
 	
 	if not is_on_floor():
 		velocity.y -= 1
