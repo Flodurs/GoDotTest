@@ -42,7 +42,7 @@ func _process(delta):
 	relative_velocity = velocity * $TwistInput.basis
 	
 	
-	velocity -= direction * brake_speed
+	velocity *= 0.8
 	
 	
 	

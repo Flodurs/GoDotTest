@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://couvnpg0x8374" path="res://scenes/Objects/wald.tscn" id="5_8xyvl"]
 [ext_resource type="PackedScene" uid="uid://wrentdl721x5" path="res://scenes/neutrals/springer.tscn" id="6_3arif"]
 [ext_resource type="Script" path="res://scenes/level/OmniLight3D.gd" id="8_wax0q"]
-[ext_resource type="PackedScene" uid="uid://bgcy2koraerc8" path="res://scenes/neutrals/mob_manager.tscn" id="9_jyysg"]
+[ext_resource type="PackedScene" path="res://scenes/neutrals/mob_manager.tscn" id="9_jyysg"]
 [ext_resource type="ArrayMesh" uid="uid://de5kolm0bojqr" path="res://Suzanne.obj" id="9_kw43f"]
 [ext_resource type="Script" path="res://scenes/level/Hud.gd" id="10_toyhc"]
 [ext_resource type="Script" path="res://scenes/level/Console.gd" id="11_kiex7"]
-[ext_resource type="PackedScene" uid="uid://cfobkdol4qwfc" path="res://scenes/Player/new_player.tscn" id="12_a6hrn"]
-[ext_resource type="PackedScene" uid="uid://5ubtwc8wei03" path="res://scenes/neutrals/yggdrasil.tscn" id="12_gf5o4"]
+[ext_resource type="PackedScene" uid="uid://ccp6o1t3v8orj" path="res://scenes/Player/new_player.tscn" id="12_a6hrn"]
+[ext_resource type="PackedScene" path="res://scenes/neutrals/yggdrasil.tscn" id="12_gf5o4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
 
