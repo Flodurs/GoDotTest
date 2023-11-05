@@ -5,8 +5,11 @@ var speed_cap: int = 10
 var jump_speed: int = 20
 var in_air_speed: int = 10
 
+func _ready():
+	set_floor_snap_length(0.2)
 
 func acceleration(delta, direction):
+	print(direction.length())
 	var velocity_2d: Vector2 = Vector2(velocity.x, velocity.z)
 	if is_on_floor():
 		if velocity_2d.length() < speed_cap:
@@ -74,15 +77,22 @@ func _physics_process(delta):
 		else:
 			velocity.x = 0
 			velocity.z = 0
-		
+	
+	
+	
 	
 	if not is_on_floor():
+		
 		velocity.y -= 30 * delta
 		
-		
+	
+	
+	
 	
 
 	move_and_slide()
+	
+	
+	
 
-
-
+	

@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt7u684plii76"]
+[gd_scene load_steps=23 format=3 uid="uid://dt7u684plii76"]
 
 [ext_resource type="Texture2D" uid="uid://m025rq5osy1j" path="res://DevTexture.png" id="1_0hb6a"]
-[ext_resource type="PackedScene" uid="uid://bfrl7ncibdxrg" path="res://scenes/Player/player.tscn" id="1_wofso"]
 [ext_resource type="PackedScene" uid="uid://2m18wnpcsctt" path="res://scenes/enemys/enemy_1.tscn" id="2_c3eje"]
 [ext_resource type="PackedScene" uid="uid://v08ble4p3wop" path="res://scenes/Objects/moving_platform.tscn" id="3_572og"]
 [ext_resource type="PackedScene" uid="uid://couvnpg0x8374" path="res://scenes/Objects/wald.tscn" id="5_8xyvl"]
@@ -11,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://de5kolm0bojqr" path="res://Suzanne.obj" id="9_kw43f"]
 [ext_resource type="Script" path="res://scenes/level/Hud.gd" id="10_toyhc"]
 [ext_resource type="Script" path="res://scenes/level/Console.gd" id="11_kiex7"]
+[ext_resource type="PackedScene" uid="uid://cfobkdol4qwfc" path="res://scenes/Player/new_player.tscn" id="12_a6hrn"]
 [ext_resource type="PackedScene" uid="uid://5ubtwc8wei03" path="res://scenes/neutrals/yggdrasil.tscn" id="12_gf5o4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwq0k"]
@@ -38,6 +38,15 @@ background_mode = 2
 sky = SubResource("Sky_0fmlg")
 ambient_light_source = 3
 
+[sub_resource type="BoxMesh" id="BoxMesh_s83an"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usxsa"]
+albedo_texture = ExtResource("1_0hb6a")
+uv1_scale = Vector3(8.24, 8.24, 8.24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihww5"]
+size = Vector3(19.9059, 1, 49.8269)
+
 [node name="Level" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -49,9 +58,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pispi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_kgdq1")
-
-[node name="Player" parent="." instance=ExtResource("1_wofso")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592, 0)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_572og")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4945, 2.08352, 0)
@@ -139,3 +145,45 @@ width = 1.0
 default_color = Color(0.0745098, 0.0196078, 0, 1)
 
 [node name="Yggdrasil" parent="." instance=ExtResource("12_gf5o4")]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.944118, 0.329608, 0, -0.329608, 0.944118, 0, 1.17575, 22.8868)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 19.9793)
+mesh = SubResource("BoxMesh_s83an")
+surface_material_override/0 = SubResource("StandardMaterial3D_usxsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.962)
+shape = SubResource("BoxShape3D_ihww5")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642975, 0.765887, 0, -0.765887, 0.642975, 9.07504, 1.17575, 58.2272)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 19.9793)
+mesh = SubResource("BoxMesh_s83an")
+surface_material_override/0 = SubResource("StandardMaterial3D_usxsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.962)
+shape = SubResource("BoxShape3D_ihww5")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.844795, 0.53509, 0, -0.53509, 0.844795, -12.4463, 1.17575, 58.2272)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 19.9793)
+mesh = SubResource("BoxMesh_s83an")
+surface_material_override/0 = SubResource("StandardMaterial3D_usxsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.962)
+shape = SubResource("BoxShape3D_ihww5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4709, 24.0607)
+
+[node name="NewPlayer" parent="." instance=ExtResource("12_a6hrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5088, 14.6999)
